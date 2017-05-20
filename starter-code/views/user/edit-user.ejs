@@ -1,0 +1,38 @@
+<h2> EDIT YOUR PROFILE </h2>
+
+<!-- <% if (typeof successMessage !== 'undefined' && successMessage.length > 0) { %>
+  <div class="success" <%=successMessage %></div>
+<% } %>
+
+<% if (typeof errorMessage !== 'undefined') { %>
+<div class="error"> <%= errorMessage %> </div>
+
+<% } %> -->
+
+<form method ="post" action="/profile/edit" enctype="multipart/form-data">
+  <label for="name-input"> Your Name:</labl>
+    <input id="name-input" type="text"
+    name="profileName" vallue=" <%= user.name %>">
+    <br>
+
+    <label for ="profile-photo-input">Upload Profile Photo: </label>
+    <input id="profile-photo-input" type="file" name="proPhoto">
+    <span class ="profile-pic"><img src= "<%=user.imgURL%>"></span>
+    <br>
+
+    <label for="email-input">Username:</label>
+    <input id="email-input" type="text"
+    name="profileEmail" value="<%= user.email %>">
+    <br>
+
+    <label for="current-password-input">Current Password</labl>
+      <input id="current-password-input" type="password"
+      name="profileCurrentPassword">
+      <br>
+
+      <label for="new-password-input">New Password: </labl>
+        <input id="new-password-input" type="password"
+        name="profileNewPassword">
+
+        <button>Save </button>
+      </form>
