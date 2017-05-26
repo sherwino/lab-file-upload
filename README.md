@@ -40,7 +40,7 @@ Complete all of the non-bonus iterations. No styling is required, but is suggest
 
 This is easier shown than described, so check out [this tumblr](http://bestdogmemes.tumblr.com/) filled with funny dog memes.
 
-### Iteration 1 | User Profile Pictures
+### Iteration 1 | User Profile Pictures - Done added to /profile/edit
 
 In the starter code, we've already provided a User model and the authentication logic. Unfortunately, the user doesn't have a profile picture.
 
