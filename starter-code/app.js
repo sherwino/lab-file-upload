@@ -23,6 +23,9 @@ app.set('view engine', 'ejs');
 app.set('layout', 'layouts/main-layout');
 app.use(expressLayouts);
 
+// default value for title local
+app.locals.title = 'Tumblr File Upload';
+
 app.use(session({
   secret: 'tumblrlabdev',
   resave: false,
@@ -102,10 +105,22 @@ app.use(cookieParser());
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components/')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+  if (req.user) {
+    //creates a variable "user" FOR ALL THE VIEWS... yaaay
+    res.locals.user = req.user;
+  }
+  next();
+});
+
+//--------------------------------------routes
+
 const index = require('./routes/index');
 const authRoutes = require('./routes/authentication');
 app.use('/', index);
 app.use('/', authRoutes);
+
+//-------------------------------------------------------------
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
